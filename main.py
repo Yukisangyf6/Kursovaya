@@ -79,3 +79,14 @@ class DocumentFormatterApp:
             section.bottom_margin = Cm(2)  # 20 мм
             section.left_margin = Cm(3)  # 30 мм
             section.right_margin = Cm(1.5)  # 15 мм
+# Форматирование текста и исправление ошибок
+        for paragraph in doc.paragraphs:
+            paragraph.style.font.name = 'Times New Roman'
+            paragraph.style.font.size = Pt(14)
+            paragraph.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
+            paragraph.paragraph_format.space_after = Pt(0)
+            paragraph.paragraph_format.space_before = Pt(0)
+            paragraph.paragraph_format.line_spacing = 1.5
+            paragraph.paragraph_format.first_line_indent = Inches(0.49)
+            #paragraph.paragraph_format.left_indent = Inches(0.49)  # 1,25 см
+            paragraph.paragraph_format.space_after = Pt(12)
