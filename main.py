@@ -90,3 +90,5 @@ class DocumentFormatterApp:
             paragraph.paragraph_format.first_line_indent = Inches(0.49)
             #paragraph.paragraph_format.left_indent = Inches(0.49)  # 1,25 см
             paragraph.paragraph_format.space_after = Pt(12)
+ # Применение отступа для первой строки
+            paragraph.paragraph_format.first_line_indent = Pt(14 * 1.25)
