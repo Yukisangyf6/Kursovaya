@@ -25,3 +25,6 @@ class DocumentFormatterApp:
         master.columnconfigure(0, weight=1)
         master.columnconfigure(1, weight=1)
         master.columnconfigure(2, weight=1)
+# Переменные для хранения путей к файлам
+        self.file_path = tk.StringVar()
+        self.download_path = tk.StringVar()
