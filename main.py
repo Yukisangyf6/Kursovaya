@@ -8,3 +8,4 @@ from reportlab.pdfgen import canvas
 from PyPDF2 import PdfFileWriter, PdfFileReader
 import fitz
 import language_tool_python
+class DocumentFormatterApp:
