@@ -151,3 +151,9 @@ class DocumentFormatterApp:
         # Открытие PDF-документа с использованием библиотеки fitz
         doc = fitz.open(self.file_path.get())
         output_doc = fitz.open()
+        for page_num in range(doc.page_count):
+            page = doc[page_num]
+            new_page = output_doc.new_page(width=page.rect.width, height=page.rect.height)
+
+            # Применение отступов страницы в миллиметрах
+            new_page.set_margins(left=30.0 / 25.4, right=(page.rect.width - 15.0) / 25.4, top=20.0 / 25.4, bottom=(page.rect.height - 20.0) / 25.4)
