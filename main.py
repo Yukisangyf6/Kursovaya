@@ -178,3 +178,9 @@ class DocumentFormatterApp:
         formatted_path = "temp_formatted.pdf"
         output_doc.save(formatted_path)
         self.move_and_cleanup(formatted_path)
+# Функция перемещения и очистки
+    def move_and_cleanup(self, formatted_path):
+        download_folder = self.download_path.get()
+        new_file_path = f"{download_folder}/formatted_document.{formatted_path.split('.')[-1]}"
+        import shutil
+        shutil.move(formatted_path, new_file_path)
