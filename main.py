@@ -52,3 +52,7 @@ class DocumentFormatterApp:
 # LanguageTool для проверки грамматики и правописания
         self.language_tool_ru = language_tool_python.LanguageTool('ru-RU')
         self.language_tool_en = language_tool_python.LanguageTool('en-US')
+# Функция выбора файла
+    def choose_file(self):
+        file_path = filedialog.askopenfilename(filetypes=[("Word Files", "*.docx"), ("PDF Files", "*.pdf")])
+        self.file_path.set(file_path)
