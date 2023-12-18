@@ -157,3 +157,20 @@ class DocumentFormatterApp:
 
             # Применение отступов страницы в миллиметрах
             new_page.set_margins(left=30.0 / 25.4, right=(page.rect.width - 15.0) / 25.4, top=20.0 / 25.4, bottom=(page.rect.height - 20.0) / 25.4)
+# Итерация по изображениям страницы
+            for img_index in range(page.get_image_count()):
+                img = page.get_image(img_index)
+                img_rect = img[0]
+                img_width = img_rect.width
+                img_height = img_rect.height
+
+                # Вычисление новой позиции для центрирования изображения
+                new_x = (page.rect.width - img_width) / 2
+                new_y = (page.rect.height - img_height) / 2
+
+                img_rect.x0 = new_x
+                img_rect.x1 = new_x + img_width
+                img_rect.y0 = new_y
+                img_rect.y1 = new_y + img_height
+
+                new_page.insert_image(img_rect, img_index=img_index)
