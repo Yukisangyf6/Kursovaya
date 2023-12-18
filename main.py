@@ -147,3 +147,4 @@ class DocumentFormatterApp:
         formatted_path = "temp_formatted.docx"
         doc.save(formatted_path)
         self.move_and_cleanup(formatted_path)
+    def format_pdf_document(self):
