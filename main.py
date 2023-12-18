@@ -143,3 +143,7 @@ class DocumentFormatterApp:
                     for shape in run._element.drawing:
                         if shape.type == 1:  # InlineShapePicture
                             shape.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # Center
+# Сохранение отформатированного текста
+        formatted_path = "temp_formatted.docx"
+        doc.save(formatted_path)
+        self.move_and_cleanup(formatted_path)
