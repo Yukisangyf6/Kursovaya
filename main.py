@@ -148,3 +148,6 @@ class DocumentFormatterApp:
         doc.save(formatted_path)
         self.move_and_cleanup(formatted_path)
     def format_pdf_document(self):
+        # Открытие PDF-документа с использованием библиотеки fitz
+        doc = fitz.open(self.file_path.get())
+        output_doc = fitz.open()
