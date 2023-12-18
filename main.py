@@ -120,3 +120,9 @@ class DocumentFormatterApp:
                             paragraph.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
                             paragraph.paragraph_format.line_spacing = 1.5
                             paragraph.paragraph_format.space_after = Pt(12)
+                # Обработка нумерованных списков
+        for para in doc.paragraphs:
+            if para.style.name.startswith('List Paragraph'):
+                for run in para.runs:
+                    run.font.name = 'Times New Roman'
+                    run.font.size = Pt(14)
