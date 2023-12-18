@@ -110,3 +110,13 @@ class DocumentFormatterApp:
                     # Автоматическое исправление ошибок правописания
                     corrected_text = self.language_tool_en.correct(text)
                     paragraph.text = corrected_text
+        for table in doc.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    for paragraph in cell.paragraphs:
+                        for run in paragraph.runs:
+                            run.font.name = "Times New Roman"
+                            run.font.size = Pt(14)  # Пример значения размера шрифта
+                            paragraph.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
+                            paragraph.paragraph_format.line_spacing = 1.5
+                            paragraph.paragraph_format.space_after = Pt(12)
