@@ -72,3 +72,10 @@ class DocumentFormatterApp:
     def format_word_document(self):
         # Открытие документа Word с использованием библиотеки docx
         doc = Document(self.file_path.get())
+# Установка отступов страницы в миллиметрах
+        sections = doc.sections
+        for section in sections:
+            section.top_margin = Cm(2)  # 20 мм
+            section.bottom_margin = Cm(2)  # 20 мм
+            section.left_margin = Cm(3)  # 30 мм
+            section.right_margin = Cm(1.5)  # 15 мм
