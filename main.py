@@ -28,3 +28,25 @@ class DocumentFormatterApp:
 # Переменные для хранения путей к файлам
         self.file_path = tk.StringVar()
         self.download_path = tk.StringVar()
+# Элементы пользовательского интерфейса
+        self.file_label = ttk.Label(master, text="Выберите файл:")
+        self.file_label.grid(row=0, column=0, padx=10, pady=10)
+
+        self.file_entry = ttk.Entry(master, textvariable=self.file_path, width=30)
+        self.file_entry.grid(row=0, column=1, padx=10, pady=10)
+
+        self.browse_button = ttk.Button(master, text="Обзор", command=self.choose_file, style="Text.TButton")
+        self.browse_button.grid(row=0, column=2, padx=5, pady=5)
+
+        self.download_folder_label = ttk.Label(master, text="Выберите папку для скачивания:")
+        self.download_folder_label.grid(row=1, column=0, padx=10, pady=10)
+
+        self.download_folder_entry = ttk.Entry(master, textvariable=self.download_path, width=30)
+        self.download_folder_entry.grid(row=1, column=1, padx=10, pady=10)
+
+        self.download_folder_button = ttk.Button(master, text="Обзор", command=self.choose_download_folder, style="Text.TButton")
+        self.download_folder_button.grid(row=1, column=2, padx=5, pady=5)
+
+        self.format_button = ttk.Button(master, text="Отформатировать", command=self.format_document, style="Text.TButton")
+        self.format_button.grid(row=2, column=1, padx=10, pady=20)
+
