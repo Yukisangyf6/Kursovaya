@@ -49,4 +49,6 @@ class DocumentFormatterApp:
 
         self.format_button = ttk.Button(master, text="Отформатировать", command=self.format_document, style="Text.TButton")
         self.format_button.grid(row=2, column=1, padx=10, pady=20)
-
+# LanguageTool для проверки грамматики и правописания
+        self.language_tool_ru = language_tool_python.LanguageTool('ru-RU')
+        self.language_tool_en = language_tool_python.LanguageTool('en-US')
