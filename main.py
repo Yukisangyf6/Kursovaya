@@ -69,3 +69,5 @@ class DocumentFormatterApp:
             self.format_word_document()
         elif file_ext == "pdf":
             self.format_pdf_document()
+    def format_word_document(self):
+
