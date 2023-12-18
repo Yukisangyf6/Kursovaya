@@ -126,3 +126,20 @@ class DocumentFormatterApp:
                 for run in para.runs:
                     run.font.name = 'Times New Roman'
                     run.font.size = Pt(14)
+# Поиск и выравнивание изображений по центру
+        for shape in doc.inline_shapes:
+            if shape.type == 1:
+                shape.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
+        for paragraph in doc.paragraphs:
+            for run in paragraph.runs:
+                run.font.name = "Times New Roman"
+                run.font.size = Pt(14)
+            paragraph.paragraph_format.alignment = WD_PARAGRAPH_ALIGNMENT.JUSTIFY
+            paragraph.paragraph_format.line_spacing = 1.5
+            paragraph.paragraph_format.space_after = Pt(12)
+            # Проверяем наличие изображений внутри параграфа
+            for run in paragraph.runs:
+                if run._element.tag.endswith('drawing') and run._element.drawing:
+                    for shape in run._element.drawing:
+                        if shape.type == 1:  # InlineShapePicture
+                            shape.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER  # Center
