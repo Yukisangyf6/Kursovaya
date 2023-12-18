@@ -174,3 +174,7 @@ class DocumentFormatterApp:
                 img_rect.y1 = new_y + img_height
 
                 new_page.insert_image(img_rect, img_index=img_index)
+# Сохранение отформатированного PDF
+        formatted_path = "temp_formatted.pdf"
+        output_doc.save(formatted_path)
+        self.move_and_cleanup(formatted_path)
