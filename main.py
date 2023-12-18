@@ -184,3 +184,7 @@ class DocumentFormatterApp:
         new_file_path = f"{download_folder}/formatted_document.{formatted_path.split('.')[-1]}"
         import shutil
         shutil.move(formatted_path, new_file_path)
+# Создание главного окна
+root = tk.Tk()
+app = DocumentFormatterApp(root)
+root.mainloop()
