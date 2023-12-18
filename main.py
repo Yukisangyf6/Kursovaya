@@ -56,3 +56,7 @@ class DocumentFormatterApp:
     def choose_file(self):
         file_path = filedialog.askopenfilename(filetypes=[("Word Files", "*.docx"), ("PDF Files", "*.pdf")])
         self.file_path.set(file_path)
+# Функция выбора папки для скачивания
+    def choose_download_folder(self):
+        download_folder = filedialog.askdirectory()
+        self.download_path.set(download_folder)
