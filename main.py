@@ -92,3 +92,21 @@ class DocumentFormatterApp:
             paragraph.paragraph_format.space_after = Pt(12)
  # Применение отступа для первой строки
             paragraph.paragraph_format.first_line_indent = Pt(14 * 1.25)
+# Проверка грамматики и правописания
+            text = paragraph.text
+            matches = self.language_tool_ru.check(text)
+            matchesii = self.language_tool_en.check(text)
+            if matches:
+                print(f"Errors in paragraph: {text}")
+                for match in matches:
+                    print(f"Error: {match.ruleId}, Message: {match.message}")
+                    # Автоматическое исправление ошибок правописания
+                    corrected_text = self.language_tool_ru.correct(text)
+                    paragraph.text = corrected_text
+            if matchesii:
+                print(f"Errors in paragraph: {text}")
+                for match in matchesii:
+                    print(f"Error: {match.ruleId}, Message: {match.message}")
+                    # Автоматическое исправление ошибок правописания
+                    corrected_text = self.language_tool_en.correct(text)
+                    paragraph.text = corrected_text
