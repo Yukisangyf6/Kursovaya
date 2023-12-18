@@ -70,4 +70,5 @@ class DocumentFormatterApp:
         elif file_ext == "pdf":
             self.format_pdf_document()
     def format_word_document(self):
-
+        # Открытие документа Word с использованием библиотеки docx
+        doc = Document(self.file_path.get())
