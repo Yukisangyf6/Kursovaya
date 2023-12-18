@@ -60,3 +60,12 @@ class DocumentFormatterApp:
     def choose_download_folder(self):
         download_folder = filedialog.askdirectory()
         self.download_path.set(download_folder)
+# Функция форматирования документа
+    def format_document(self):
+        file_path = self.file_path.get()
+        file_ext = file_path.split('.')[-1].lower()
+
+        if file_ext == "docx":
+            self.format_word_document()
+        elif file_ext == "pdf":
+            self.format_pdf_document()
